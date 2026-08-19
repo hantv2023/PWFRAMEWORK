@@ -1,0 +1,9 @@
+[
+    {
+        "id": "customer01",
+        "userName": "hanguyen123",
+        "password": "hanguyen@123",
+        "role": "customer"
+    }
+
+]
