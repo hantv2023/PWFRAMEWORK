@@ -1,0 +1,11 @@
+image: node:20
+
+stages:
+  - test
+
+playwright_tests:
+  stage: test
+  script:
+    - npm ci
+    - npx playwright install --with-deps chromium
+    - npx playwright test
