@@ -9,4 +9,4 @@ node_modules/
 reports/
 .env
 allure-report/
-resources/accounts.json/
+resources/accounts.json
