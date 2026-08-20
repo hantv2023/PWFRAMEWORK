@@ -22,6 +22,22 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Create test accounts file
+        env:
+          TEST_USERNAME: ${{ secrets.TEST_USERNAME }}
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
+        run: |
+          mkdir -p resources
+          jq -n \
+            --arg username "$TEST_USERNAME" \
+            --arg password "$TEST_PASSWORD" \
+            '[{
+              id: "customer01",
+              userName: $username,
+              password: $password,
+              role: "customer"
+            }]' > resources/accounts.json
+
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
